@@ -1,0 +1,75 @@
+####################################
+# macOS
+####################################
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+
+####################################
+# Gradle
+####################################
+.gradle/
+build/
+*/build/
+
+
+
+####################################
+# Local & secrets config (DO NOT COMMIT)
+####################################
+local.properties
+gradle.properties
+keystore.properties
+*.jks
+*.keystore
+
+####################################
+# Android Studio / IntelliJ
+####################################
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+####################################
+# Native build
+####################################
+.externalNativeBuild/
+.cxx/
+
+####################################
+# Logs & temp
+####################################
+*.log
+*.tmp
+*.swp
+
+####################################
+# Generated files
+####################################
+captures/
+coverage/
+*.hprof
+
+####################################
+# Kotlin / Java
+####################################
+*.class
+
+####################################
+# Fastlane (optional)
+####################################
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+
+####################################
+# Firebase / Google services
+####################################
+google-services.json
