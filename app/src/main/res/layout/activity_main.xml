@@ -149,7 +149,6 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- ================= SEMUA BERITA ================= -->
         <TextView
             android:text="Semua Berita"
             android:textSize="22sp"
@@ -160,7 +159,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
-        <!-- ===== LIST SHIMMER ===== -->
         <LinearLayout
             android:id="@+id/shimmerList"
             android:orientation="vertical"

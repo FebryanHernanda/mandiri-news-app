@@ -80,8 +80,6 @@ class MainActivity : AppCompatActivity() {
         binding.rvNews.visibility = View.VISIBLE
     }
 
-
-
     private fun setupInfiniteScroll() {
         binding.rvNews.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(rv: RecyclerView, dx: Int, dy: Int) {

@@ -17,26 +17,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <!-- IMAGE SHIMMER -->
             <View
                 android:layout_width="match_parent"
                 android:layout_height="220dp"
                 android:background="@drawable/bg_shimmer"/>
 
-            <!-- TEXT AREA -->
             <LinearLayout
                 android:orientation="vertical"
                 android:padding="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <!-- TITLE LINE 1 -->
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="18dp"
                     android:background="@drawable/bg_shimmer"/>
 
-                <!-- TITLE LINE 2 (70% WIDTH) -->
                 <View
                     android:layout_marginTop="8dp"
                     android:layout_width="0dp"
@@ -44,21 +40,18 @@
                     android:layout_weight="0.7"
                     android:background="@drawable/bg_shimmer"/>
 
-                <!-- META (SOURCE + DATE) -->
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_marginTop="12dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <!-- SOURCE (40%) -->
                     <View
                         android:layout_width="0dp"
                         android:layout_height="12dp"
                         android:layout_weight="0.4"
                         android:background="@drawable/bg_shimmer"/>
 
-                    <!-- DATE (20%) -->
                     <View
                         android:layout_width="0dp"
                         android:layout_height="12dp"
