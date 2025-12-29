@@ -1,6 +1,7 @@
 package com.example.mandiri_news_apps.ui.main
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -9,6 +10,8 @@ import com.bumptech.glide.Glide
 import com.example.mandiri_news_apps.databinding.ActivityMainBinding
 import com.example.mandiri_news_apps.helper.formatDate
 import com.example.mandiri_news_apps.ui.adapter.NewsAdapter
+import com.example.mandiri_news_apps.R
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,6 +28,7 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this)[MainViewModel::class.java]
 
         setupRecycler()
+        showLoading()
         observeData()
         setupInfiniteScroll()
     }
@@ -37,6 +41,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun observeData() {
         viewModel.headline.observe(this) { article ->
+
+            binding.shimmerHeadline.visibility = View.GONE
+            binding.headlineCard.visibility = View.VISIBLE
+
             binding.tvHeadlineTitle.text = article?.title ?: "-"
             binding.tvHeadlineSource.text = article?.source?.name ?: "-"
             binding.tvHeadlineDate.text = formatDate.fromIso(article?.publishedAt)
@@ -44,13 +52,35 @@ class MainActivity : AppCompatActivity() {
 
             Glide.with(this)
                 .load(article?.urlToImage)
+                .placeholder(R.drawable.bg_image_placeholder)
+                .error(R.drawable.bg_image_placeholder)
                 .into(binding.imgHeadline)
         }
 
         viewModel.newsList.observe(this) {
+            hideLoading()
+
             adapter.submit(it)
         }
     }
+
+    private fun showLoading() {
+        binding.shimmerHeadline.visibility = View.VISIBLE
+        binding.shimmerList.visibility = View.VISIBLE
+
+        binding.headlineCard.visibility = View.GONE
+        binding.rvNews.visibility = View.GONE
+    }
+
+    private fun hideLoading() {
+        binding.shimmerHeadline.visibility = View.GONE
+        binding.shimmerList.visibility = View.GONE
+
+        binding.headlineCard.visibility = View.VISIBLE
+        binding.rvNews.visibility = View.VISIBLE
+    }
+
+
 
     private fun setupInfiniteScroll() {
         binding.rvNews.addOnScrollListener(object : RecyclerView.OnScrollListener() {

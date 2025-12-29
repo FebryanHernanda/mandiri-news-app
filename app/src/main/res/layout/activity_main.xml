@@ -10,46 +10,58 @@
         android:orientation="vertical"
         android:padding="16dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
-
-    <!-- HEADER -->
-    <LinearLayout
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ImageView
-            android:src="@drawable/ic_mandiri_logo"
-            android:layout_width="60dp"
-            android:layout_height="60dp"/>
+        <!-- ================= HEADER ================= -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
+            <ImageView
+                android:src="@drawable/ic_mandiri_logo"
+                android:layout_width="60dp"
+                android:layout_height="60dp"/>
+
+            <TextView
+                android:text="Mandiri News"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#1F2A44"
+                android:paddingStart="12dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <!-- ================= BERITA TERKINI ================= -->
         <TextView
-            android:text="Mandiri News"
-            android:textSize="20sp"
+            android:text="Berita Terkini"
+            android:textSize="22sp"
             android:textStyle="bold"
             android:textColor="#1F2A44"
-            android:paddingStart="12dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="12dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
+            android:layout_height="wrap_content"/>
 
-    <!-- SECTION TITLE -->
-    <TextView
-        android:text="Berita Terkini"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:textColor="#1F2A44"
-        android:paddingHorizontal="20dp"
-        android:paddingTop="16dp"
-        android:paddingBottom="12dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        <!-- ===== HEADLINE SHIMMER ===== -->
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmerHeadline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp">
 
-    <!-- HEADLINE CARD -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="260dp"
+                android:background="@drawable/bg_shimmer"/>
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+        <!-- ===== HEADLINE CARD ===== -->
         <androidx.cardview.widget.CardView
-            android:layout_marginHorizontal="20dp"
+            android:id="@+id/headlineCard"
+            android:visibility="gone"
             android:layout_marginBottom="20dp"
             app:cardCornerRadius="24dp"
             app:cardElevation="6dp"
@@ -61,15 +73,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <!-- IMAGE FULL WIDTH -->
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/imgHeadline"
                     android:layout_width="match_parent"
                     android:layout_height="220dp"
-                    android:scaleType="centerCrop"
-                    app:shapeAppearanceOverlay="@style/RoundedImageTop"/>
+                    android:scaleType="centerCrop"/>
 
-                <!-- TEXT AREA -->
                 <LinearLayout
                     android:orientation="vertical"
                     android:padding="16dp"
@@ -86,53 +95,110 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
 
-                    <!-- SOURCE + DATE -->
                     <LinearLayout
                         android:orientation="horizontal"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
-                        <TextView
-                            android:id="@+id/tvHeadlineSource"
-                            android:textSize="13sp"
-                            android:textColor="#6B7280"
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
                             android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"/>
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content">
 
-                        <TextView
-                            android:id="@+id/tvHeadlineDate"
-                            android:textSize="13sp"
-                            android:textColor="#9CA3AF"
+                            <ImageView
+                                android:layout_width="14dp"
+                                android:layout_height="14dp"
+                                android:src="@drawable/ic_public"
+                                android:tint="#9CA3AF"/>
+
+                            <TextView
+                                android:id="@+id/tvHeadlineSource"
+                                android:layout_marginStart="6dp"
+                                android:textSize="13sp"
+                                android:textColor="#6B7280"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:layout_width="14dp"
+                                android:layout_height="14dp"
+                                android:src="@drawable/ic_calendar_today"
+                                android:tint="#9CA3AF"/>
+
+                            <TextView
+                                android:id="@+id/tvHeadlineDate"
+                                android:layout_marginStart="6dp"
+                                android:textSize="13sp"
+                                android:textColor="#9CA3AF"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                        </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
+        <!-- ================= SEMUA BERITA ================= -->
+        <TextView
+            android:text="Semua Berita"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#1F2A44"
+            android:paddingTop="16dp"
+            android:paddingBottom="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-        <!-- SECTION TITLE -->
-    <TextView
-        android:text="Semua Berita"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:textColor="#1F2A44"
-        android:padding="24dp"
-        android:paddingHorizontal="16dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        <!-- ===== LIST SHIMMER ===== -->
+        <LinearLayout
+            android:id="@+id/shimmerList"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <!-- LIST -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvNews"
-        android:nestedScrollingEnabled="false"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/bg_shimmer"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/bg_shimmer"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/bg_shimmer"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/bg_shimmer"/>
+        </LinearLayout>
+
+        <!-- ===== LIST ===== -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvNews"
+            android:visibility="gone"
+            android:nestedScrollingEnabled="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
     </LinearLayout>
-
 </androidx.core.widget.NestedScrollView>
-
-

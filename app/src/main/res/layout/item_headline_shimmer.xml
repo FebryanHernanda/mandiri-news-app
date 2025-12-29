@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.facebook.shimmer.ShimmerFrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="20dp">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="6dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- IMAGE SHIMMER -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:background="@drawable/bg_shimmer"/>
+
+            <!-- TEXT AREA -->
+            <LinearLayout
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!-- TITLE LINE 1 -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="18dp"
+                    android:background="@drawable/bg_shimmer"/>
+
+                <!-- TITLE LINE 2 (70% WIDTH) -->
+                <View
+                    android:layout_marginTop="8dp"
+                    android:layout_width="0dp"
+                    android:layout_height="18dp"
+                    android:layout_weight="0.7"
+                    android:background="@drawable/bg_shimmer"/>
+
+                <!-- META (SOURCE + DATE) -->
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_marginTop="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <!-- SOURCE (40%) -->
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="12dp"
+                        android:layout_weight="0.4"
+                        android:background="@drawable/bg_shimmer"/>
+
+                    <!-- DATE (20%) -->
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="12dp"
+                        android:layout_weight="0.2"
+                        android:layout_marginStart="12dp"
+                        android:background="@drawable/bg_shimmer"/>
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</com.facebook.shimmer.ShimmerFrameLayout>
